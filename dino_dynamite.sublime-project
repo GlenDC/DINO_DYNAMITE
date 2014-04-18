@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "/home/glendc/projects/jams/DINO_DYNAMITE",
+            "file_exclude_patterns": ["*.sublime-*", ".dummy"]
+		}
+	]
+}

@@ -1,0 +1,210 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"play",
+				"playerRotation"
+			],
+			[
+				"gyro",
+				"gyroVector"
+			],
+			[
+				"proto",
+				"prototype"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 52.0,
+		"selected_items":
+		[
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/glendc/projects/jams/PEE_GAME/game_alt/src/bootstrap.coffee",
+		"/home/glendc/projects/jams/PEE_GAME/game_alt/index.html",
+		"/home/glendc/projects/jams/PEE_GAME/game_alt/src/player.js",
+		"/home/glendc/projects/jams/PEE_GAME/game_alt/vendor/controls.js",
+		"/home/glendc/projects/jams/PEE_GAME/game_alt/src/game.js",
+		"/home/glendc/projects/jams/PEE_GAME/pee_game.sublime-project",
+		"/home/glendc/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/glendc/projects/jams/PEE_GAME/game_alt/dist/game.js",
+		"/home/glendc/projects/jams/PEE_GAME/game/src/game.js",
+		"/home/glendc/projects/opensource/three.js/docs/prettify/prettify.js",
+		"/home/glendc/projects/opensource/three.js/docs/list.js",
+		"/home/glendc/projects/jams/PEE_GAME/pee_game.sublime-workspace",
+		"/home/glendc/projects/jams/PEE_GAME/game/game-screen.html",
+		"/home/glendc/projects/jams/PEE_GAME/game/css/game-screen-main.css",
+		"/home/glendc/projects/jams/PEE_GAME/threejs-pee.html",
+		"/home/glendc/projects/jams/PEE_GAME/game-screen.html",
+		"/home/glendc/.Xdefaults",
+		"/home/glendc/projects/expiremental/xorg.conf",
+		"/home/glendc/downloads/100272384331.sdx"
+	],
+	"find":
+	{
+		"height": 52.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".value",
+			"Player",
+			"player",
+			"Player",
+			"quat",
+			"Player",
+			"player",
+			"controls",
+			"PointerLockControls",
+			"camera",
+			"cannonBody",
+			"pitchObject",
+			"pointerlockchange",
+			"pointer",
+			"player"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"player",
+				"game/src/player.js"
+			],
+			[
+				"game",
+				"game/src/game.js"
+			],
+			[
+				"game.js",
+				"game_alt/src/game.js"
+			],
+			[
+				"controls",
+				"PEE_GAME/game_alt/vendor/controls.js"
+			],
+			[
+				"objloader",
+				"three.js/examples/js/loaders/OBJLoader.js"
+			],
+			[
+				"objload",
+				"three.js/src/loaders/ObjectLoader.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
