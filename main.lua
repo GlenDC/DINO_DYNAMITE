@@ -10,7 +10,10 @@ end
 
 function love.update(dt)
     ENGINE.Update(dt)
-    DEBUG:Log( "Hello Debug Logger!" )
+    if love.touch.getTouchCount() > 0 then
+        local id, x, y, pressure = love.touch.getTouch( 1 )
+        DEBUG:Log( id .. ", " .. x .. ", " .. y .. ", " .. pressure )
+    end
 end
 
 function love.draw()
