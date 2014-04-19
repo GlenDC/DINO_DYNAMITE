@@ -2,8 +2,12 @@
 	"folders":
 	[
 		{
-			"path": "/home/glendc/projects/jams/DINO_DYNAMITE",
-            "file_exclude_patterns": ["*.sublime-*", ".dummy"]
+			"path": "/home/glendc/projects/opensource/love-android-sdl2/assets",
+			"file_exclude_patterns":
+			[
+				"*.sublime-*",
+				".dummy"
+			]
 		}
 	]
 }
