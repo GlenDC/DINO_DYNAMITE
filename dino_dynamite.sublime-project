@@ -2,12 +2,15 @@
 	"folders":
 	[
 		{
-			"path": "/home/glendc/projects/opensource/love-android-sdl2/assets",
 			"file_exclude_patterns":
 			[
 				"*.sublime-*",
 				".dummy"
-			]
+			],
+			"path": "/home/glendc/projects/opensource/love-android-sdl2/assets"
+		},
+		{
+			"path": "/home/glendc/projects/opensource/love-component-system/samples"
 		}
 	]
 }

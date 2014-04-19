@@ -1,31 +1,19 @@
 require 'lcs.engine'
+require 'dino.debug.console'
+
+DEBUG = nil
 
 function love.load()
-    ANIMATION.Create("ken",{
-        Source = love.graphics.newImage("res/tmp/ken.png"),
-        CellWidth = 70,
-        CellHeight = 80,
-        Frames = { 0, 1, 2, 3 },
-        FrameRate = 8
-        })
-
-    local description = {
-        {
-            Type= "ANIMATED_SPRITE",
-            Properties = {
-                Animation = ANIMATION.Get("ken"),
-                Extent = { 256, 256 }
-            }
-        }
-    }
-
-    ENTITY(description,{400,300})
+    DEBUG = CONSOLE:new()
+    DEBUG.Max = 10
 end
 
 function love.update(dt)
     ENGINE.Update(dt)
+    DEBUG:Log( "Hello Debug Logger!" )
 end
 
 function love.draw()
     ENGINE.Render()
+    DEBUG:PrintLog()
 end
