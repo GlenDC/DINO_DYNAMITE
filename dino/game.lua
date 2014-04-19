@@ -18,7 +18,7 @@ function GAME:CreateResources()
                 Type = "SPRITE",
                 Properties = {
                     Texture = TEXTURE.Get( "clouds" ),
-                    World = 2
+                    World = 1
                 }
             }
         }

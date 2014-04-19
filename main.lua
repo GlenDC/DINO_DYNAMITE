@@ -8,7 +8,7 @@ DEBUG = nil
 local game = GAME()
 
 function love.load( arg )
-    love.graphics.setBackgroundColor( 229,167,45 )
+    love.graphics.setBackgroundColor( 0, 0, 0 )
 
     DEBUG = CONSOLE:new()
     DEBUG.Max = 10
