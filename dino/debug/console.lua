@@ -14,8 +14,15 @@ function CONSOLE:new( instance )
     return instance
 end
 
-function CONSOLE:GetYValue( index )
+function CONSOLE:GetYScale( index )
     return 10 + ( 15 * ( index - 1 ) * self.Scale )
+end
+
+function CONSOLE:GetYPosition( index )
+    return
+        love.graphics.getHeight() -
+        self:GetYScale( self.Max + 2 ) +
+        self:GetYScale( index )
 end
 
 function CONSOLE:PrintLog()
@@ -27,9 +34,9 @@ function CONSOLE:PrintLog()
         love.graphics.rectangle(
             "fill",
             0,
-            0,
+            GetYPosition( self.Max + 2 ),
             love.graphics.getWidth(),
-            self:GetYValue( self.Max + 2 )
+            self:GetYScale( self.Max + 2 )
             )
 
         love.graphics.setColor( self.Forground )
@@ -38,7 +45,7 @@ function CONSOLE:PrintLog()
             love.graphics.print(
                 self.Logs[ i ],
                 10,
-                self:GetYValue( i ),
+                self:GetYPosition( i ),
                 0,
                 self.Scale
                 )
