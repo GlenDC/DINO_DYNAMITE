@@ -13,7 +13,7 @@ function love.load( arg )
     DEBUG = CONSOLE:new()
     DEBUG.Max = 10
 
-    ENGINE.Initialize( arg )
+    ENGINE.Initialize( arg, { 128, 192 } )
 
     game:Load()
     game:ChangeState("InGame")

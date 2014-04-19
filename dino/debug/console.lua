@@ -34,9 +34,9 @@ function CONSOLE:PrintLog()
         love.graphics.rectangle(
             "fill",
             0,
-            GetYPosition( self.Max + 2 ),
+            self:GetYPosition( 1 ) - 10,
             love.graphics.getWidth(),
-            self:GetYScale( self.Max + 2 )
+            self:GetYScale( self.Max + 2 ) + 20
             )
 
         love.graphics.setColor( self.Forground )
