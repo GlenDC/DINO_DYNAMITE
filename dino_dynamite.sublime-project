@@ -7,10 +7,7 @@
 				"*.sublime-*",
 				".dummy"
 			],
-			"path": "/home/glendc/projects/opensource/love-android-sdl2/assets"
-		},
-		{
-			"path": "/home/glendc/projects/opensource/love-component-system/samples"
+			"path": "/home/glendc/projects/jams/DINO_DYNAMITE"
 		}
 	]
 }
