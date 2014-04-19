@@ -19,6 +19,25 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "main.lua",
+			"settings":
+			{
+				"buffer_size": 646,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "require 'dino.level'\nrequire 'dino.camera'\n\nGAME = class( function( o )\n    o.Level = LEVEL()\nend )\n\nSTATE_MACHINE.ImplementInClass( GAME )\n\nfunction GAME:Load()\n    TEXTURE.Load( \"clouds\", \"res/img/\" )\nend\n\nfunction GAME:NewGame()\n    ENTITY.DestroyAll()\n\n    self.Camera = CAMERA()\n    self.Level:Load()\nend\n\nfunction GAME:Update( dt )\n    self:UpdateState( dt )\nend\n\nfunction GAME.OnStateEnter:InGame()\n    self:NewGame()\nend\n\nfunction GAME.OnStateUpdate:InGame( dt )\n    -- self.Camera.Position[1] = self.Camera.Position[1] - 200 * dt\n\n    self.Level:Update( dt )\nend",
+			"file": "dino/game.lua",
+			"file_size": 530,
+			"file_write_time": 1397907658000000,
+			"settings":
+			{
+				"buffer_size": 571,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -52,6 +71,24 @@
 	},
 	"file_history":
 	[
+		"/home/glendc/projects/jams/DINO_DYNAMITE/main.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_text.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_static_sprite.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_sprite_batch.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_sprite.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_quad.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_physic_world.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_physic.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_particle.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_circle.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_camera.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_bounding_world.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/.gitignore",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_bounding.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_animated_sprite.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/engine.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/dino_dynamite.sublime-project",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/game.love",
 		"/home/glendc/projects/jams/PEE_GAME/game_alt/src/bootstrap.coffee",
 		"/home/glendc/projects/jams/PEE_GAME/game_alt/index.html",
 		"/home/glendc/projects/jams/PEE_GAME/game_alt/src/player.js",
@@ -78,16 +115,18 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src"
 		]
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"lcs.",
 			".value",
 			"Player",
 			"player",
@@ -110,11 +149,13 @@
 		"regex": false,
 		"replace_history":
 		[
+			"lcs.src.",
+			""
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
@@ -122,6 +163,60 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "main.lua",
+					"settings":
+					{
+						"buffer_size": 646,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								109,
+								109
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "dino/game.lua",
+					"settings":
+					{
+						"buffer_size": 571,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								199,
+								199
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -158,7 +253,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -167,12 +262,12 @@
 		"selected_items":
 		[
 			[
-				"player",
-				"game/src/player.js"
+				"game",
+				"dino/game.lua"
 			],
 			[
-				"game",
-				"game/src/game.js"
+				"player",
+				"game/src/player.js"
 			],
 			[
 				"game.js",
@@ -205,6 +300,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 281.0,
 	"status_bar_visible": true
 }
