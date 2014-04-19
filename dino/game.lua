@@ -8,6 +8,26 @@ end )
 STATE_MACHINE.ImplementInClass( GAME )
 
 function GAME:Load()
+    TEXTURE.Load( "clouds", "res/img/clouds.png" )
+end
+
+function GAME:CreateResources()
+    local descriptions = {
+        Clouds = {
+            {
+                Type = "SPRITE",
+                Properties = {
+                    Texture = TEXTURE.Get( "clouds" ),
+                    World = 2
+                }
+            }
+        }
+    }
+
+    self.Clouds = ENTITY(
+        descriptions.Clouds,
+        { 0, 0 }
+        )
 end
 
 function GAME:NewGame()
@@ -15,6 +35,8 @@ function GAME:NewGame()
 
     self.Camera = CAMERA()
     self.Level:Load()
+
+    self:CreateResources()
 end
 
 function GAME:Update( dt )
