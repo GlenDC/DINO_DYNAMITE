@@ -2,19 +2,22 @@ Dino Dynamite
 =============
 A prototype for the Fishing Cactus Game Jam #1
 
-# How To Run
-1. Clone our fork of the Love-Android project: `git clone git@bitbucket.org:orph4nus/love-android-sdl2.git <LOVE_ANDROID_PATH>`
-2. Clone this project: `git clone git@github.com:GlenDC/DINO_DYNAMITE.git <DINO_DYNAMITE_PATH>`
-3. Make sure your android device is connected
-4. Package and run the project on your device: `<DINO_DYNAMITE_PATH>/scripts/build_and_run.sh <LOVE_ANDROID_PATH>`
+# How to configure this project
+1. Clone my fork of the Love-Android project: `git clone git@bitbucket.org:orph4nus/love-android-sdl2.git <LOVE_ANDROID_PATH>`
+1. Clone this project: `git clone git@github.com:GlenDC/DINO_DYNAMITE.git <DINO_DYNAMITE_PATH>`
+1. Clone my fork of the Love Component System: `git clone git@github.com:GlenDC/love-component-system.git <DINO_DYNAMITE_PATH>/lcs`
+
+# How to run this project
+1. Make sure your android device is connected
+1. Package and run the project on your device: `<DINO_DYNAMITE_PATH>/scripts/build_and_run.sh <LOVE_ANDROID_PATH>`
 
 ## Notes:
 In order to run this project, you need to have the following installed on your computer:
 
 1. Android SDK (and save it as the ANDROID_HOME environment variable)
-2. Android NDK (and save it as te ANDROID_NDK environment variable)
+1. Android NDK (and save it as te ANDROID_NDK environment variable)
 
-On top of this you may need other software, depending on what os you have. Use Google and solve it.
+On top of this you may need other software, depending on what OS you have. Use Google and solve it.
 
 # Credits
 * **[Guillaume Bouckaert](https://github.com/GitBouckx)**: Designer, Artist
