@@ -1,8 +1,12 @@
-require 'lcs.engine'
+require 'lcs.src.engine'
 
-function love.load()
+SAMPLES_ANIMATION = {
+    AnimatedKen = nil
+}
+
+function SAMPLES_ANIMATION.Load()
     ANIMATION.Create("ken",{
-        Source = love.graphics.newImage("data/ken.png"),
+        Source = love.graphics.newImage("res/smp/ken.png"),
         CellWidth = 70,
         CellHeight = 80,
         Frames = { 0, 1, 2, 3 },
@@ -19,19 +23,14 @@ function love.load()
         }
     }
 
-    ENTITY(description,{400,300})
+    AnimatedKen = ENTITY(description,{400,300})
 end
 
-function love.update(dt)
-    ENGINE.Update(dt)
+function SAMPLES_ANIMATION.Unload()
+    AnimatedKen:Destroy()
+    AnimatedKen = nil
 end
 
-function love.draw()
-    ENGINE.Render()
-end
+function SAMPLES_ANIMATION.Update( delta_time )
 
-function love.keypressed(key)
-    if key == "escape" then
-        love.event.push("quit")
-    end
 end

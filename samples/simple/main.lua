@@ -1,8 +1,8 @@
-require 'lcs.engine'
+require 'lcs.src.engine'
 
--- Locals
+SAMPLES_SIMPLE = {}
 
-local texture = love.graphics.newImage("data/texture.png")
+local texture = love.graphics.newImage("res/smp/texture.png")
 local descriptions ={
     World = {
         {
@@ -76,9 +76,7 @@ end)
 
 local heart1, heart2
 
-function love.load(arg)
-    ENGINE.Initialize(arg)
-
+function SAMPLES_SIMPLE.Load( arguments )
     local ps = love.graphics.newParticleSystem(texture, 30)
     ps:setEmissionRate(30)
     ps:setParticleLifetime(2)
@@ -102,12 +100,11 @@ function love.load(arg)
     heart2:AddParticleSystem(ps2,true)
 end
 
-function love.update(dt)
-    ENGINE.Update(dt)
+function SAMPLES_SIMPLE.Unload()
+    ENTITY.DestroyAll()
 end
 
-function love.draw()
-    ENGINE.Render()
+function SAMPLES_SIMPLE.Update( delta_time )
 end
 
 function love.keypressed(key)

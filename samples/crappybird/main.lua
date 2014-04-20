@@ -1,4 +1,4 @@
-require 'lcs.engine'
+require 'lcs.src.engine'
 
 require 'game'
 
