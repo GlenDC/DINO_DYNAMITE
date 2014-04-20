@@ -2,10 +2,11 @@ CONSOLE = {
     Logs = {},
     Max = 10,
     Active = true,
-    Scale = 2.0,
     Forground =  { 255,255,255,255 },
     Background = { 0,0,0,128 }
     }
+
+local SCALE = 0.5
 
 function CONSOLE:new( instance )
     instance = instance or {}
@@ -14,8 +15,14 @@ function CONSOLE:new( instance )
     return instance
 end
 
+function CONSOLE:GetUnit( x )
+    return x * ENGINE.ScreenScaleRatio
+end
+
 function CONSOLE:GetYScale( index )
-    return 10 + ( 15 * ( index - 1 ) * self.Scale )
+    return self:GetUnit(
+        10  + ( self:GetUnit( 15 ) * ( index - 1 ) * SCALE )
+        )
 end
 
 function CONSOLE:GetYPosition( index )
@@ -33,10 +40,12 @@ function CONSOLE:PrintLog()
 
         love.graphics.rectangle(
             "fill",
-            0,
-            self:GetYPosition( 1 ) - 10,
+            ENGINE.ViewportOffset[ 1 ],
+            ENGINE.ViewportOffset[ 2 ] +
+                self:GetYPosition( 1 ) -
+                self:GetUnit( 10 ),
             love.graphics.getWidth(),
-            self:GetYScale( self.Max + 2 ) + 20
+            self:GetYScale( self.Max + 2 ) + self:GetUnit( 20 )
             )
 
         love.graphics.setColor( self.Forground )
@@ -44,10 +53,10 @@ function CONSOLE:PrintLog()
         for i = 1, length do
             love.graphics.print(
                 self.Logs[ i ],
-                10,
-                self:GetYPosition( i ),
+                ENGINE.ViewportOffset[ 1 ] + self:GetUnit( 10 ),
+                ENGINE.ViewportOffset[ 2 ] + self:GetYPosition( i ),
                 0,
-                self.Scale
+                self:GetUnit( SCALE )
                 )
         end
     end
