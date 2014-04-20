@@ -1,0 +1,3 @@
+{
+    "cmd": ["build_and_run.sh", "$file"]
+}

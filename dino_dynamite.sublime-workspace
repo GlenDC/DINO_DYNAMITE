@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"of",
+				"Offset"
+			],
+			[
+				"get",
+				"getWidth"
+			],
+			[
+				"View",
+				"ViewportOffset"
+			],
+			[
+				"Screen",
+				"CalculateScreenScaleValues"
+			],
+			[
+				"Scre",
+				"ScreenAspectRatio"
+			],
+			[
+				"Asp",
+				"ScreenAspectRatio"
+			],
+			[
+				"scre",
+				"screen_res"
+			],
+			[
+				"work",
+				"working_res"
+			],
+			[
 				"play",
 				"playerRotation"
 			],
@@ -23,18 +55,74 @@
 			"file": "main.lua",
 			"settings":
 			{
-				"buffer_size": 646,
+				"buffer_size": 657,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "require 'dino.level'\nrequire 'dino.camera'\n\nGAME = class( function( o )\n    o.Level = LEVEL()\nend )\n\nSTATE_MACHINE.ImplementInClass( GAME )\n\nfunction GAME:Load()\n    TEXTURE.Load( \"clouds\", \"res/img/\" )\nend\n\nfunction GAME:NewGame()\n    ENTITY.DestroyAll()\n\n    self.Camera = CAMERA()\n    self.Level:Load()\nend\n\nfunction GAME:Update( dt )\n    self:UpdateState( dt )\nend\n\nfunction GAME.OnStateEnter:InGame()\n    self:NewGame()\nend\n\nfunction GAME.OnStateUpdate:InGame( dt )\n    -- self.Camera.Position[1] = self.Camera.Position[1] - 200 * dt\n\n    self.Level:Update( dt )\nend",
 			"file": "dino/game.lua",
-			"file_size": 530,
-			"file_write_time": 1397907658000000,
 			"settings":
 			{
-				"buffer_size": 571,
+				"buffer_size": 986,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lcs/src/component_sprite.lua",
+			"settings":
+			{
+				"buffer_size": 2257,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 83 files for \"Extent\" (case sensitive, whole word)\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/animation/main.lua:\n   15              Properties = {\n   16                  Animation = ANIMATION.Get(\"ken\"),\n   17:                 Extent = { 256, 256 }\n   18              }\n   19          }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/basic/main.lua:\n    8          Properties = {\n    9              Texture = love.graphics.newImage(\"data/texture.png\"),\n   10:             Extent = {64,64},\n   11              Layer = 11\n   12          }\n   ..\n   16          Properties = {\n   17              Texture = love.graphics.newImage(\"data/texture.png\"),\n   18:             Extent = {256,256},\n   19              Layer = 3\n   20          }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bomberman/block.lua:\n    7                  Texture = ss.Source,\n    8                  Quad = ss:GetQuad(\"tree\"),\n    9:                 Extent = {32,32},\n   10                  Layer = 1\n   11              }\n   ..\n   15              Properties = {\n   16                  Shape = \"rectangle\",\n   17:                 Extent = {32,32}\n   18              }\n   19          }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bomberman/bomb.lua:\n    5              Properties = {\n    6                  Texture = TEXTURE.Get(\"bomb\"),\n    7:                 Extent = {32,32},\n    8                  Layer = 1\n    9              }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bomberman/camera.lua:\n    4              Type = \"CAMERA\",\n    5              Properties = {\n    6:                 Extent = {800,600}\n    7              }\n    8          }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bomberman/level.lua:\n   40                  Properties = {\n   41                      Shape = \"rectangle\",\n   42:                     Extent = {32,32}\n   43                  }\n   44              }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bomberman/player.lua:\n    5              Properties = {\n    6                  Animation = ANIMATION.Get(\"idle\"),\n    7:                 Extent = {32,32},\n    8                  Layer = 1\n    9              }\n   ..\n   13              Properties = {\n   14                  Shape = \"rectangle\",\n   15:                 Extent = {28,28}\n   16              }\n   17          }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bounding/lcs/component_animated_sprite.lua:\n    5      o.Layer = parameters.Layer or 1\n    6      o.Entity = entity\n    7:     o.Extent = parameters.Extent or {cw, ch}\n    8      o.Color = parameters.Color or {255,255,255,255}\n    9  \n   ..\n   40      self.OffsetX = cw * 0.5\n   41      self.OffsetY = ch * 0.5\n   42:     self.Extent = self.Extent or {cw, ch}\n   43:     self.ScaleFactorX = self.Extent[1] / cw\n   44:     self.ScaleFactorY = self.Extent[2] / ch\n   45  end\n   46  \n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bounding/lcs/component_bounding.lua:\n    7  \n    8      local p = entity.Position\n    9:     local e = parameters.Extent\n   10  \n   11      o.OffsetX = e[1] * 0.5\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bounding/lcs/component_camera.lua:\n    3  COMPONENT_CAMERA = class(function(o,parameters,entity)\n    4      o.Entity = entity\n    5:     o.Extent = parameters.Extent\n    6      o.World = parameters.World or 1\n    7  \n    .\n   19  \n   20  function COMPONENT_CAMERA:Apply()\n   21:     local e = self.Extent\n   22      local w = love.graphics.getWidth()\n   23      local h = love.graphics.getHeight()\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bounding/lcs/component_physic.lua:\n    8      rectangle = function(o,parameters,x,y,typ)\n    9          o.Body = love.physics.newBody(parameters.World.World, x, y, typ or \"dynamic\")\n   10:         o.Shape = love.physics.newRectangleShape(parameters.Extent[1], parameters.Extent[2])\n   11      end\n   12  }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bounding/lcs/component_quad.lua:\n    2  \n    3  COMPONENT_QUAD = class(function(o,parameters,entity)\n    4:     o.Extent = parameters.Extent\n    5      o.Color = parameters.Color or {255,255,255,255}\n    6      o.Layer = parameters.Layer or 1\n    7      o.Entity = entity\n    8:     o.OffsetX = o.Extent[1] * 0.5\n    9:     o.OffsetY = o.Extent[2] * 0.5\n   10  end)\n   11  \n   ..\n   25          self.Entity.Position[1] - self.OffsetX,\n   26          self.Entity.Position[2] - self.OffsetY,\n   27:         self.Extent[1],\n   28:         self.Extent[2]\n   29          )\n   30  end\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bounding/lcs/component_sprite.lua:\n    4      o.Texture = parameters.Texture\n    5      o.Quad = parameters.Quad\n    6:     o.Extent = parameters.Extent\n    7      o.Offset = parameters.Offset\n    8      o.Layer = parameters.Layer or 1\n    .\n   20      end\n   21  \n   22:     if o.Extent == nil then\n   23:         o.Extent = {w,h}\n   24      end\n   25  \n   26:     o.ScaleFactorX = o.Extent[1] / w\n   27:     o.ScaleFactorY = o.Extent[2] / h\n   28      o.OffsetX = ( w * 0.5 )\n   29      o.OffsetY = ( h * 0.5 )\n   ..\n   35      o.World = parameters.World or 1\n   36  \n   37:     o.Entity.Extent = o.Extent\n   38  end)\n   39  \n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bounding/lcs/component_text.lua:\n    6      o.Entity = entity\n    7      o.Font = parameters.Font or love.graphics.getFont()\n    8:     o.Extent = parameters.Extent or {o.Font:getWidth(parameters.Text), o.Font:getHeight()}\n    9      o:SetText(parameters.Text)\n   10      o.World = parameters.World or 1\n   ..\n   46  \n   47      if reset_extent then\n   48:         self.Extent = {self.Font:getWidth(text), self.Font:getHeight()}\n   49      end\n   50  \n   51:     self.ScaleX = self.Extent[1] / w\n   52:     self.ScaleY = self.Extent[2] / h\n   53  end\n   54  \n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/bounding/main.lua:\n   15              Type = \"QUAD\",\n   16              Properties = {\n   17:                 Extent = {64,64}\n   18              }\n   19          },\n   ..\n   21              Type = \"BOUNDING\",\n   22              Properties = {\n   23:                 Extent = {64,64}\n   24              }\n   25          }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/crappybird/bird.lua:\n    5              Properties = {\n    6                  Texture = TEXTURE.Get(\"bird_up\"),\n    7:                 Extent = {64,64},\n    8                  Layer = 3\n    9              }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/crappybird/camera.lua:\n    4              Type = \"CAMERA\",\n    5              Properties = {\n    6:                 Extent = {800,600}\n    7              }\n    8          }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/crappybird/game.lua:\n   54              Type = \"CAMERA\",\n   55              Properties = {\n   56:                 Extent = {800,600},\n   57                  World = 2\n   58              }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/crappybird/level.lua:\n   60                  Properties = {\n   61                      Shape = \"rectangle\",\n   62:                     Extent = {102400,4*15},\n   63                      Type = \"static\"\n   64                  }\n   ..\n   70                  Properties = {\n   71                      Shape = \"rectangle\",\n   72:                     Extent = {64,self.ObstacleHeight},\n   73                      Type = \"static\"\n   74                  }\n   ..\n   80                  Properties = {\n   81                      Shape = \"rectangle\",\n   82:                     Extent = {64,self.ObstacleHeight},\n   83                      Type = \"static\"\n   84                  }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/demolitionball/component_breakable.lua:\n   81      ps:setSpin(20)\n   82      ps:setDirection(0)\n   83:     ps:setAreaSpread(\"uniform\",self.Entity.Extent[1]/2,self.Entity.Extent[2]/2)\n   84  \n   85      local e = ENTITY(description,self.Entity.Position, self.Entity.Orientation)\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/demolitionball/crates.lua:\n    4  CRATES.List = {\n    5      Small = {\n    6:         Extent = {32,32},\n    7          Textures = {\"crate1_0\", \"crate1_1\", \"crate1_2\"},\n    8          Density = 100\n    9      },\n   10      Big = {\n   11:         Extent = {64,64},\n   12          Textures = {\"crate2_0\", \"crate2_1\", \"crate2_2\", \"crate2_3\"},\n   13          Density = 200\n   ..\n   22              Properties = {\n   23                  Shape = \"rectangle\",\n   24:                 Extent = crate.Extent,\n   25                  Type = \"dynamic\",\n   26                  Density = crate.Density\n   ..\n   31              Properties = {\n   32                  Texture = TEXTURE.Get(crate.Textures[1]),\n   33:                 Extent = crate.Extent\n   34              }\n   35          },\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/demolitionball/editor.lua:\n   12              Properties = {\n   13                  Texture = TEXTURE.Get(\"ball\"),\n   14:                 Extent = {16,64}\n   15              }\n   16          },\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/demolitionball/game.lua:\n   97              Properties = {\n   98                  Texture = TEXTURE.Get(\"ball\"),\n   99:                 Extent = {16,64}\n  100              }\n  101          },\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/demolitionball/level.lua:\n   22              Properties = {\n   23                  Shape = \"rectangle\",\n   24:                 Extent = {10240,60},\n   25                  Type = \"static\",\n   26                  Density = 1\n   ..\n   47              Properties = {\n   48                  Shape = \"rectangle\",\n   49:                 Extent = extent,\n   50                  Type = \"dynamic\",\n   51                  Density = density\n   ..\n   56              Properties = {\n   57                  Texture = TEXTURE.Get(\"crate1_0\"),\n   58:                 Extent = extent\n   59              }\n   60          },\n   ..\n   74      for i=1,10 do\n   75          local name = names[math.random(1,2)]\n   76:         local extent = CRATES.List[name].Extent\n   77          local pos = {x,last_y - extent[2] * 0.5}\n   78          local e = ENTITY(CRATES.GetDescription(name), pos)\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/simple/main.lua:\n   16          Properties = {\n   17              Texture = texture,\n   18:             Extent = {64,64},\n   19              Layer = 3\n   20          }\n   ..\n   38              Type = \"QUAD\",\n   39              Properties = {\n   40:                 Extent = {600,60},\n   41                  Layer = 1\n   42              }\n   ..\n   46              Properties = {\n   47                  Shape = \"rectangle\",\n   48:                 Extent = {600,60},\n   49                  Type = \"static\"\n   50              }\n\n/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples/text/main.lua:\n    8          Properties = {\n    9              Text = \"love-component-system\",\n   10:             Extent = {312,64}\n   11          }\n   12      }\n\n67 matches across 26 files\n",
+			"settings":
+			{
+				"buffer_size": 11065,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "lcs/src/engine.lua",
+			"settings":
+			{
+				"buffer_size": 3541,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dino_dynamite.sublime-build",
+			"settings":
+			{
+				"buffer_size": 103,
+				"line_ending": "Unix",
+				"name": "untitled.sublime-build"
+			}
+		},
+		{
+			"file": "lcs/src/math.lua",
+			"settings":
+			{
+				"buffer_size": 127,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dino/debug/console.lua",
+			"settings":
+			{
+				"buffer_size": 1801,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lcs/src/entity.lua",
+			"settings":
+			{
+				"buffer_size": 4632,
 				"line_ending": "Unix"
 			}
 		}
@@ -71,6 +159,10 @@
 	},
 	"file_history":
 	[
+		"/home/glendc/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/glendc/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/texture.lua",
+		"/home/glendc/projects/jams/DINO_DYNAMITE/res/img/clouds.png",
 		"/home/glendc/projects/jams/DINO_DYNAMITE/main.lua",
 		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_text.lua",
 		"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src/component_static_sprite.lua",
@@ -118,6 +210,7 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/samples",
 			"/home/glendc/projects/jams/DINO_DYNAMITE/lcs/src"
 		]
 	},
@@ -126,6 +219,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"OffsetX",
+			"Position",
+			"Extent",
+			"ScreenDimensions",
+			"ScreenOffset",
+			"engine",
+			"vertical_viewport_offset",
+			"horizontal_viewport_offset",
+			"mVerticalViewportOffset",
+			"mHorizontalViewportOffset",
 			"lcs.",
 			".value",
 			"Player",
@@ -149,6 +252,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"ViewportDimensions",
+			"ViewportOffset",
+			"ScreenOffset[ 2 ]",
+			"ScreenOffset[ 1 ]",
+			"vertical_viewport_offset",
+			"horizontal_viewport_offset",
 			"lcs.src.",
 			""
 		],
@@ -161,6 +270,7 @@
 	"groups":
 	[
 		{
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -168,15 +278,15 @@
 					"file": "main.lua",
 					"settings":
 					{
-						"buffer_size": 646,
+						"buffer_size": 657,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								109,
-								109
+								25,
+								25
 							]
 						],
 						"settings":
@@ -196,15 +306,15 @@
 					"file": "dino/game.lua",
 					"settings":
 					{
-						"buffer_size": 571,
+						"buffer_size": 986,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								199,
-								199
+								458,
+								458
 							]
 						],
 						"settings":
@@ -213,6 +323,478 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lcs/src/component_sprite.lua",
+					"settings":
+					{
+						"buffer_size": 2257,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1101,
+								1101
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"settings":
+					{
+						"buffer_size": 11065,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										249,
+										255
+									],
+									[
+										501,
+										507
+									],
+									[
+										694,
+										700
+									],
+									[
+										952,
+										958
+									],
+									[
+										1131,
+										1137
+									],
+									[
+										1371,
+										1377
+									],
+									[
+										1612,
+										1618
+									],
+									[
+										1857,
+										1863
+									],
+									[
+										2111,
+										2117
+									],
+									[
+										2290,
+										2296
+									],
+									[
+										2528,
+										2534
+									],
+									[
+										2548,
+										2554
+									],
+									[
+										2726,
+										2732
+									],
+									[
+										2740,
+										2746
+									],
+									[
+										2795,
+										2801
+									],
+									[
+										2846,
+										2852
+									],
+									[
+										3048,
+										3054
+									],
+									[
+										3290,
+										3296
+									],
+									[
+										3310,
+										3316
+									],
+									[
+										3449,
+										3455
+									],
+									[
+										3852,
+										3858
+									],
+									[
+										3874,
+										3880
+									],
+									[
+										4077,
+										4083
+									],
+									[
+										4097,
+										4103
+									],
+									[
+										4260,
+										4266
+									],
+									[
+										4301,
+										4307
+									],
+									[
+										4473,
+										4479
+									],
+									[
+										4504,
+										4510
+									],
+									[
+										4722,
+										4728
+									],
+									[
+										4742,
+										4748
+									],
+									[
+										4877,
+										4883
+									],
+									[
+										4913,
+										4919
+									],
+									[
+										4981,
+										4987
+									],
+									[
+										5025,
+										5031
+									],
+									[
+										5186,
+										5192
+									],
+									[
+										5197,
+										5203
+									],
+									[
+										5416,
+										5422
+									],
+									[
+										5436,
+										5442
+									],
+									[
+										5648,
+										5654
+									],
+									[
+										5760,
+										5766
+									],
+									[
+										5804,
+										5810
+									],
+									[
+										6001,
+										6007
+									],
+									[
+										6158,
+										6164
+									],
+									[
+										6402,
+										6408
+									],
+									[
+										6644,
+										6650
+									],
+									[
+										6869,
+										6875
+									],
+									[
+										7132,
+										7138
+									],
+									[
+										7343,
+										7349
+									],
+									[
+										7565,
+										7571
+									],
+									[
+										7868,
+										7874
+									],
+									[
+										7892,
+										7898
+									],
+									[
+										8140,
+										8146
+									],
+									[
+										8299,
+										8305
+									],
+									[
+										8529,
+										8535
+									],
+									[
+										8544,
+										8550
+									],
+									[
+										8768,
+										8774
+									],
+									[
+										8783,
+										8789
+									],
+									[
+										9021,
+										9027
+									],
+									[
+										9267,
+										9273
+									],
+									[
+										9504,
+										9510
+									],
+									[
+										9707,
+										9713
+									],
+									[
+										9927,
+										9933
+									],
+									[
+										10113,
+										10119
+									],
+									[
+										10400,
+										10406
+									],
+									[
+										10561,
+										10567
+									],
+									[
+										10741,
+										10747
+									],
+									[
+										10989,
+										10995
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "lcs/src/engine.lua",
+					"settings":
+					{
+						"buffer_size": 3541,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1009,
+								1009
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 360.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "dino_dynamite.sublime-build",
+					"settings":
+					{
+						"buffer_size": 103,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								103,
+								103
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "lcs/src/math.lua",
+					"settings":
+					{
+						"buffer_size": 127,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								34,
+								34
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "dino/debug/console.lua",
+					"settings":
+					{
+						"buffer_size": 1801,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								639,
+								639
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "lcs/src/entity.lua",
+					"settings":
+					{
+						"buffer_size": 4632,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2267,
+								2267
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1062.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -261,6 +843,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"entity",
+				"lcs/src/entity.lua"
+			],
+			[
+				"sprite",
+				"lcs/src/component_sprite.lua"
+			],
 			[
 				"game",
 				"dino/game.lua"
