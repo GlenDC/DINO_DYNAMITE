@@ -16,22 +16,16 @@ local description = {
 
 local entity
 
-function love.load()
+SAMPLES_TEXT = {}
+
+function SAMPLES_TEXT.Load()
     entity = ENTITY(description,{400,300})
 end
 
-function love.update(dt)
-    entity.Orientation = entity.Orientation + dt
-
-    ENGINE.Update(dt)
+function SAMPLES_TEXT.Unload()
+    entity:Destroy()
 end
 
-function love.draw()
-    ENGINE.Render()
-end
-
-function love.keypressed(key)
-    if key == "escape" then
-        love.event.push("quit")
-    end
+function SAMPLES_TEXT.Update( delta_time )
+    entity.Orientation = entity.Orientation + delta_time
 end

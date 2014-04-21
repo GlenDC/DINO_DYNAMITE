@@ -4,12 +4,16 @@ require 'samples.animation.main'
 require 'samples.basic.main'
 require 'samples.simple.main'
 require 'samples.bounding.main'
+require 'samples.text.main'
+require 'samples.sprite_sheet.main'
 
 local SAMPLES = {
     SAMPLES_ANIMATION,
     SAMPLES_BASIC,
-    SAMPLES_SIMPLE,
-    SAMPLES_BOUNDING
+    --SAMPLES_SIMPLE, -- :TODO: Fix crashing issue and enable again
+    SAMPLES_BOUNDING,
+    SAMPLES_TEXT,
+    SAMPLES_SPRITE_SHEET
 }
 
 local CurrentSample = #SAMPLES
@@ -45,6 +49,8 @@ function love.touchreleased( identifier, x, y, pressure )
         -- :TODO: Make unloading simpler and clean
         --        So that we don't need to rework
         --        all of the code of samples
+
+        -- :TODO: Clean up properly!
         SAMPLES[ CurrentSample ].Unload()
 
         CurrentSample = CurrentSample + 1

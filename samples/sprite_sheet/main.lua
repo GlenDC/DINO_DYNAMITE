@@ -2,11 +2,16 @@ require 'lcs.src.engine'
 
 -- Locals
 
-local sprite_sheet = SPRITE_SHEET(love.graphics.newImage("data/tile_set.png"),32,32)
+local sprite_sheet =
+    SPRITE_SHEET(
+        love.graphics.newImage( "res/smp/tile_set.png" ),
+        32,
+        32
+        )
 
-sprite_sheet:AddQuad("grass",0,20,1,1)
-sprite_sheet:AddQuad("tree",2,20,1,1)
-sprite_sheet:AddQuad("building",0,10,4,5)
+sprite_sheet:AddQuad( "grass", 0, 20, 1, 1 )
+sprite_sheet:AddQuad( "tree", 2, 20, 1, 1 )
+sprite_sheet:AddQuad( "building", 0, 10, 4, 5 )
 
 
 local description = {
@@ -43,39 +48,42 @@ local description = {
         }
     }
 }
--- Callbacks
 
-function love.load()
-    local world = ENTITY(description.World,{0,0})
+SAMPLES_SPRITE_SHEET = {}
+
+local world, tree, grass
+
+function SAMPLES_SPRITE_SHEET.Load()
+    world = ENTITY( description.World, { 0, 0 } )
 
     world:Bind()
 
-    for x=0,800,32 do
-        for y=0,600,32 do
+    for x = 0, 800, 32 do
+        for y = 0, 600, 32 do
             if math.random() < 0.06 then
-                ENTITY(description.Tree,{x,y})
+                tree = ENTITY( description.Tree, { x, y } )
             else
-                ENTITY(description.Grass,{x,y})
+                grass = ENTITY( description.Grass, { x, y } )
             end
         end
     end
 
-    ENTITY(description.Building,{512,256})
+    ENTITY( description.Building, { 512, 256 } )
 
     world:Unbind()
 end
 
-function love.update(dt)
+function SAMPLES_SPRITE_SHEET.Unload()
+    world:Destroy()
 
-    ENGINE.Update(dt)
-end
-
-function love.draw()
-    ENGINE.Render()
-end
-
-function love.keypressed(key)
-    if key == "escape" then
-        love.event.push("quit")
+    if tree then
+        tree:Destroy()
     end
+
+    if grass then
+        grass:Destroy()
+    end
+end
+
+function SAMPLES_SPRITE_SHEET.Update( delta_time )
 end
