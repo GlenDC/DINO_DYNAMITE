@@ -51,19 +51,21 @@ local description = {
 
 SAMPLES_SPRITE_SHEET = {}
 
-local world, tree, grass
+local world, environment
 
 function SAMPLES_SPRITE_SHEET.Load()
     world = ENTITY( description.World, { 0, 0 } )
 
     world:Bind()
 
+    environment = {}
+
     for x = 0, 800, 32 do
         for y = 0, 600, 32 do
             if math.random() < 0.06 then
-                tree = ENTITY( description.Tree, { x, y } )
+                environment[ #environment + 1 ] = ENTITY( description.Tree, { x, y } )
             else
-                grass = ENTITY( description.Grass, { x, y } )
+                environment[ #environment + 1 ] = ENTITY( description.Grass, { x, y } )
             end
         end
     end
@@ -76,13 +78,11 @@ end
 function SAMPLES_SPRITE_SHEET.Unload()
     world:Destroy()
 
-    if tree then
-        tree:Destroy()
+    for i, entity in ipairs( environment ) do
+        entity:Destroy()
     end
 
-    if grass then
-        grass:Destroy()
-    end
+    environment = nil
 end
 
 function SAMPLES_SPRITE_SHEET.Update( delta_time )

@@ -21,7 +21,7 @@ local CurrentSample = #SAMPLES
 function love.load( arguments )
     love.graphics.setBackgroundColor( 0, 0, 0 )
 
-    ENGINE.Initialize( arg, { 640, 480 } )
+    ENGINE.Initialize( arg, { 800, 600 } )
 
     for i, sample in ipairs( SAMPLES ) do
         if sample.Initialize then
