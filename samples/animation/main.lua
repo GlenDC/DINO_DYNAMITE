@@ -4,6 +4,9 @@ SAMPLES_ANIMATION = {
     AnimatedKen = nil
 }
 
+function SAMPLES_ANIMATION.Initialize()
+end
+
 function SAMPLES_ANIMATION.Load()
     ANIMATION.Create("ken",{
         Source = love.graphics.newImage("res/smp/ken.png"),

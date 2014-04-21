@@ -22,6 +22,9 @@ SAMPLES_BASIC = {
     Entity = nil
 }
 
+function SAMPLES_BASIC.Initialize()
+end
+
 function SAMPLES_BASIC.Load()
     SAMPLES_BASIC.Entity = ENTITY( SAMPLES_BASIC.Descriptions, { 400, 300 } )
 end
